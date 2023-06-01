@@ -38,11 +38,11 @@ export const routes = [{
 },
 {
     method: 'DELETE',
-    path:buildRoutePath('/users/:id'),
+    path:buildRoutePath('/task/:id'),
     handler:(req,res)=> {
         const { id } = req.params
 
-        database.delete('users', id)
+        database.delete('tasks', id)
 
         return res.writeHead(204).end()
         }
@@ -62,6 +62,17 @@ export const routes = [{
             updated_at
         })
 
+        return res.writeHead(204).end()
+        }
+},
+{
+    method: 'PATCH',
+    path:buildRoutePath('/task/:id/complete'),
+    handler:(req,res)=> {
+        const { id } = req.params
+        database.updatePatch('tasks', id, {
+           completed_at: new Date().toISOString()
+        })
         return res.writeHead(204).end()
         }
 }

@@ -55,6 +55,19 @@ export class Database {
         
     }
 
+    updatePatch(table,id,newData) {
+        const rowData = this.#database[table].find(row => row.id === id)
+        const rowIndex = this.#database[table].findIndex(row => row.id === id)
+
+        if (rowData && rowIndex > -1) {
+            this.#database[table][rowIndex] = {
+                ...rowData, ...newData
+            }
+            this.#persist()
+        }   
+        
+    }
+
     delete(table,id) {
         const rowIndex = this.#database[table].findIndex(row => row.id === id)
      
