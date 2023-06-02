@@ -1,6 +1,6 @@
 {
   "name": "fundamentos-node-js-desafio-01",
-  "type":  "module",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,10 @@
     "dev": "node --watch src/server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "csv-generate": "^4.2.6",
+    "csv-parse": "^5.4.0",
+    "node-fetch": "^3.3.1"
+  }
 }
